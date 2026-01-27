@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LCS - Engineering Digital Continuity</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    .tech-bg {
+      background-color: #64748b;
+      background-image: linear-gradient(rgba(0, 31, 63, 0.85), rgba(0, 31, 63, 0.85)), url('/assets/hero-background.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    
+    /* Precision Animations */
+    @keyframes spin-clockwise {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-spin-slow {
+      animation: spin-clockwise 20s linear infinite;
+    }
+
+    /* Non-Intrusive Button Styles */
+    .btn-refined {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-refined:hover {
+      box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4), inset 0 0 0 2px rgba(255, 255, 255, 0.1);
+      filter: brightness(1.1);
+    }
+    .btn-refined:active {
+      transform: scale(0.98);
+      filter: brightness(0.95);
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-150%) skewX(-20deg); }
+      100% { transform: translateX(150%) skewX(-20deg); }
+    }
+    .shimmer-effect::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+      animation: shimmer 3s infinite linear;
+    }
+
+    /* Core Utility Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+      animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .reveal {
+      opacity: 0;
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    .nav-link-underline::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #2563eb;
+      transition: width 0.3s ease-in-out;
+    }
+    .nav-link-underline:hover::after, .nav-link-active::after {
+      width: 100%;
+    }
+
+    /* Icon Float Animation */
+    @keyframes iconFloat {
+      0%, 100% { transform: translateY(-10px); }
+      50% { transform: translateY(10px); }
+    }
+    .animate-icon-float {
+      animation: iconFloat 3s ease-in-out infinite;
+    }
+
+    /* Icon Bounce Animation */
+    @keyframes iconBounce {
+      0%, 100% { transform: translateY(-10px) scale(1); }
+      50% { transform: translateY(10px) scale(1.05); }
+    }
+    .animate-icon-bounce {
+      animation: iconBounce 2.5s ease-in-out infinite;
+    }
+
+    /* Gradient Animation */
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    .animate-gradient {
+      background-size: 200% 200%;
+      animation: gradientShift 8s ease infinite;
+    }
+
+    /* Scale In Animation */
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .animate-scale-in {
+      animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Slide In from Left */
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .animate-slide-in-left {
+      animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Slide In from Right */
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .animate-slide-in-right {
+      animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Glow Pulse Animation */
+    @keyframes glowPulse {
+      0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+      50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.8); }
+    }
+    .animate-glow-pulse {
+      animation: glowPulse 3s ease-in-out infinite;
+    }
+
+    /* Rotate Slow */
+    @keyframes rotateSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-rotate-slow {
+      animation: rotateSlow 20s linear infinite;
+    }
+
+    /* Text Gradient Animation */
+    @keyframes textGradient {
+      0%, 100% { background-position: 0% center; }
+      50% { background-position: 100% center; }
+    }
+    .animate-text-gradient {
+      background: linear-gradient(90deg, #3b82f6, #60a5fa, #3b82f6);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textGradient 4s linear infinite;
+    }
+
+    /* Card Pop Animation */
+    @keyframes cardPop {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+      100% { transform: scale(1); }
+    }
+
+    /* Hover Effects */
+    .hover-lift {
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .hover-lift:hover {
+      transform: translateY(-8px) scale(1.02);
+    }
+
+    /* Stagger Animation Classes */
+    .stagger-1 { animation-delay: 0.1s; }
+    .stagger-2 { animation-delay: 0.2s; }
+    .stagger-3 { animation-delay: 0.3s; }
+    .stagger-4 { animation-delay: 0.4s; }
+    .stagger-5 { animation-delay: 0.5s; }
+
+    /* Typing/Word Reveal Animation */
+    @keyframes wordReveal {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .word-reveal {
+      display: inline-block;
+      opacity: 0;
+      animation: wordReveal 0.3s ease-out forwards;
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.12.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-gray-50 text-slate-900">
+  <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
