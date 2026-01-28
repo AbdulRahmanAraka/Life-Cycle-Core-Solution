@@ -1,8 +1,20 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const AboutPage: React.FC = () => {
+  const [showDisclaimer, setShowDisclaimer] = useState(false);
+
+  useEffect(() => {
+    if (showDisclaimer) {
+      const timer = setTimeout(() => {
+        setShowDisclaimer(false);
+      }, 10000); // 10 seconds
+
+      return () => clearTimeout(timer);
+    }
+  }, [showDisclaimer]);
+
   return (
     <div className="bg-slate-100 min-h-screen">
       {/* Top Header Section */}
@@ -176,7 +188,7 @@ const AboutPage: React.FC = () => {
       </div>
 
       {/* Experience Across Leading Global Organizations */}
-      <div className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <div className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative">
         <div className="container mx-auto px-4 lg:px-20">
           <div className="text-center mb-16 reveal active">
             <h2 className="text-5xl font-black text-white mb-4">
@@ -190,20 +202,19 @@ const AboutPage: React.FC = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 items-center">
             {[
-              { src: 'assets/volocopter.png', alt: 'Volocopter', blend: false },
-              { src: 'assets/honeywell.png', alt: 'Honeywell', blend: false },
-              { src: 'assets/mechronspike-new.png', alt: 'MechriSpike', blend: true },
-              { src: 'assets/kaartech.png', alt: 'KaarTech', blend: false },
-              { src: 'assets/qatarenergy.png', alt: 'Qatar Energy LNG', blend: false },
-              { src: 'assets/hindsight.png', alt: 'Hind Sight', blend: false },
-              { src: 'assets/engineering.png', alt: 'Engineering Company', blend: false }
+              { src: 'assets/volocopter.png', alt: 'Volocopter' },
+              { src: 'assets/honeywell.png', alt: 'Honeywell' },
+              { src: 'assets/mechronspike-new.png', alt: 'MechriSpike' },
+              { src: 'assets/kaartech.png', alt: 'KaarTech' },
+              { src: 'assets/qatarenergy.png', alt: 'Qatar Energy LNG' },
+              { src: 'assets/hindsight.png', alt: 'Hind Sight' },
+              { src: 'assets/engineering.png', alt: 'Engineering Company' }
             ].map((logo, i) => (
               <div key={i} className="bg-white rounded-[1.5rem] p-8 flex items-center justify-center hover:scale-105 transition-transform duration-300 shadow-xl hover:shadow-2xl reveal active h-32 group">
                 <img 
                   src={logo.src} 
                   alt={logo.alt} 
-                  className={`max-w-full max-h-full object-contain transition-opacity ${logo.blend ? 'mix-blend-multiply' : ''}`}
-                  style={logo.blend ? { filter: 'brightness(1.2)' } : {}}
+                  className="max-w-full max-h-full object-contain transition-opacity"
                 />
               </div>
             ))}
@@ -226,6 +237,25 @@ const AboutPage: React.FC = () => {
                 <div className="text-slate-400 text-sm font-bold uppercase tracking-wider">Countries</div>
               </div>
             </div>
+          </div>
+
+          {/* Info Icon with Click Toggle */}
+          <div className="mt-8 flex items-center justify-end gap-4 reveal active">
+            <button 
+              onClick={() => setShowDisclaimer(!showDisclaimer)}
+              className="w-10 h-10 bg-slate-700/80 hover:bg-slate-600 rounded-full flex items-center justify-center text-slate-300 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl border border-slate-600 hover:border-slate-500 flex-shrink-0"
+            >
+              <i className="fas fa-info text-sm"></i>
+            </button>
+            
+            {/* Disclaimer Text */}
+            {showDisclaimer && (
+              <div className="bg-slate-800/90 text-slate-200 text-xs md:text-sm leading-relaxed px-6 py-3 rounded-2xl shadow-2xl border border-slate-700 max-w-2xl animate-fade-in-up">
+                <p className="font-semibold">
+                  Logos represent organizations where our leadership team has gained professional experience. No partnership or endorsement is implied.
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>
