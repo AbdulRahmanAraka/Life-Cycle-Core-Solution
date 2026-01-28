@@ -79,10 +79,7 @@ const IndustriesPage: React.FC = () => {
     <div className="bg-white">
       {/* Header */}
       <div className="bg-slate-50 py-12 border-b border-gray-100">
-        <div className="container mx-auto px-4 flex items-center space-x-6">
-          <div className="h-14 w-auto flex items-center justify-center">
-            <img src="assets/logo.png" alt="LCS Logo" className="h-full w-auto block" />
-          </div>
+        <div className="container mx-auto px-4">
           <h1 className="text-3xl font-black text-slate-900 tracking-tight">Industries</h1>
         </div>
       </div>

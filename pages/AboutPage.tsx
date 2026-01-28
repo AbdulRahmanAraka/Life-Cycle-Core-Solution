@@ -4,24 +4,19 @@ import { Link } from 'react-router-dom';
 
 const AboutPage: React.FC = () => {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-slate-100 min-h-screen">
       {/* Top Header Section */}
-      <div className="bg-white py-12 border-b border-gray-50">
+      <div className="bg-gradient-to-r from-slate-900 to-slate-800 py-12 border-b border-slate-700">
         <div className="container mx-auto px-4 lg:px-20">
-          <div className="flex items-center space-x-6">
-            <div className="h-14 w-auto flex items-center justify-center">
-              <img src="assets/logo.png" alt="LCS Logo" className="h-full w-auto block" />
-            </div>
-            <h1 className="text-4xl font-black text-slate-900 tracking-tight">About Us</h1>
-          </div>
+          <h1 className="text-4xl font-black text-white tracking-tight">About Us</h1>
         </div>
       </div>
 
       {/* Hero Section */}
-      <div className="container mx-auto px-4 lg:px-20 py-16">
-        <div className="flex flex-col lg:flex-row gap-16">
+      <div className="container mx-auto px-4 lg:px-20 py-16 bg-slate-100">
+        <div className="flex flex-col lg:flex-row gap-12">
           {/* Left Content */}
-          <div className="lg:w-3/5 space-y-10 reveal active">
+          <div className="lg:w-1/2 space-y-10 reveal active">
             <h2 className="text-5xl font-black text-slate-900 leading-tight">
               Engineering<br />
               <span className="text-blue-600">Digital Continuity</span>
@@ -37,7 +32,7 @@ const AboutPage: React.FC = () => {
             </div>
 
             {/* Core Values Box */}
-            <div className="bg-blue-50/50 p-8 rounded-[2rem] border border-blue-100 max-w-lg">
+            <div className="bg-blue-50 p-8 rounded-[2rem] border-2 border-blue-200 shadow-lg">
               <div className="flex items-center space-x-4 mb-6">
                 <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white">
                   <i className="fas fa-users"></i>
@@ -59,71 +54,184 @@ const AboutPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Dark Card */}
-          <div className="lg:w-2/5 reveal active">
-            <div className="bg-slate-900 rounded-[3rem] p-12 text-white shadow-2xl relative overflow-hidden flex flex-col items-center text-center">
-              <h4 className="text-xl font-bold tracking-[0.2em] mb-20 uppercase opacity-90">LIFECYCLE CORE SOLUTIONS</h4>
+          {/* Right Content - Core Methodology */}
+          <div className="lg:w-1/2 reveal active">
+            <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-[2.5rem] p-10 shadow-2xl h-full">
+              <div className="mb-8">
+                <h3 className="text-3xl font-black text-white mb-2">Our Core Methodology</h3>
+                <div className="h-1 w-24 bg-blue-500 rounded-full"></div>
+              </div>
               
-              <div className="mb-20 text-slate-700 text-8xl opacity-30">
-                <i className="fas fa-handshake"></i>
-              </div>
-
-              {/* Glowing PLM Box */}
-              <div className="w-full relative mt-auto">
-                <div className="border border-cyan-500/50 rounded-2xl p-10 bg-slate-900/50 backdrop-blur-sm relative z-10">
-                  <h5 className="text-6xl font-black text-cyan-400 drop-shadow-[0_0_15px_rgba(34,211,238,0.5)] mb-4">PLM</h5>
-                  <div className="flex justify-center space-x-1 mb-2">
-                    {[1,2,3,4,5].map(i => <div key={i} className="w-1 h-1 bg-cyan-500 rounded-full"></div>)}
+              <div className="space-y-6">
+                {[
+                  { icon: 'fa-search', title: 'Understand', desc: 'Deep analysis of business objectives, engineering processes, and system landscape.' },
+                  { icon: 'fa-sliders-h', title: 'Define', desc: 'Clear roadmap, architecture, and implementation strategy aligned with client goals.' },
+                  { icon: 'fa-rocket', title: 'Implement', desc: 'Robust execution with focus on quality, performance, and scalability.' },
+                  { icon: 'fa-chart-line', title: 'Optimize & Support', desc: 'Continuous improvement, optimization, and long-term system stability.' }
+                ].map((m, i) => (
+                  <div key={i} className="flex gap-4 group">
+                    <div className="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white text-xl group-hover:bg-blue-500 transition-colors">
+                      <i className={`fas ${m.icon}`}></i>
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-black text-white mb-2">{m.title}</h4>
+                      <p className="text-slate-400 text-sm leading-relaxed">{m.desc}</p>
+                    </div>
                   </div>
-                </div>
-                {/* Decorative border elements */}
-                <div className="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-cyan-500 rounded-tl-lg"></div>
-                <div className="absolute -top-2 -right-2 w-8 h-8 border-t-2 border-r-2 border-cyan-500 rounded-tr-lg"></div>
-                <div className="absolute -bottom-2 -left-2 w-8 h-8 border-b-2 border-l-2 border-cyan-500 rounded-bl-lg"></div>
-                <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-cyan-500 rounded-br-lg"></div>
+                ))}
               </div>
-
-              <p className="mt-8 text-xs text-slate-400 leading-relaxed max-w-[250px]">
-                Mid-to-large scale manufacturing organizations. PLM implementation, strategy & optimization.
-              </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Methodology Section */}
-      <div className="py-24 bg-white">
+      {/* Our Expertise Section */}
+      <div className="py-24 bg-slate-100">
         <div className="container mx-auto px-4 lg:px-20">
           <div className="text-center mb-16 reveal active">
-            <h2 className="text-4xl font-black text-slate-900 mb-4 inline-block relative">
-              Our Core Methodology
-              <div className="h-1.5 w-1/2 bg-blue-600 mx-auto mt-2 rounded-full"></div>
+            <h2 className="text-5xl font-black text-slate-900 mb-4">
+              Our Expertise
             </h2>
+            <div className="h-1.5 w-32 bg-blue-600 mx-auto rounded-full"></div>
+            <p className="text-slate-600 text-lg mt-6 max-w-2xl mx-auto">
+              Comprehensive solutions across the digital manufacturing ecosystem
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: 'fa-search', title: 'Understand', desc: 'Deep analysis of business objectives, engineering processes, and system landscape.' },
-              { icon: 'fa-sliders-h', title: 'Define', desc: 'Clear roadmap, architecture, and implementation strategy aligned with client goals.' },
-              { icon: 'fa-rocket', title: 'Implement', desc: 'Robust execution with focus on quality, performance, and scalability.' },
-              { icon: 'fa-chart-line', title: 'Optimize & Support', desc: 'Continuous improvement, optimization, and long-term system stability.' }
-            ].map((m, i) => (
-              <div key={i} className="bg-white p-10 rounded-[2rem] shadow-lg border border-gray-50 flex flex-col h-full reveal active">
-                <div className="text-blue-600 text-3xl mb-8">
-                  <i className={`fas ${m.icon}`}></i>
+              {
+                icon: 'fa-database',
+                title: 'PDM / PLM',
+                items: [
+                  'CAD & product data management',
+                  'Enterprise PLM platforms',
+                  'Lifecycle & configuration control'
+                ]
+              },
+              {
+                icon: 'fa-industry',
+                title: 'Digital Manufacturing',
+                items: [
+                  'Manufacturing planning & simulation',
+                  'Process and production readiness',
+                  'Robotics & shop-floor alignment'
+                ]
+              },
+              {
+                icon: 'fa-tools',
+                title: 'MOM / MES',
+                items: [
+                  'Manufacturing operations management',
+                  'Execution & shop-floor control'
+                ]
+              },
+              {
+                icon: 'fa-cloud',
+                title: 'Industry 4.0 / IIoT',
+                items: [
+                  'Connected systems & machines',
+                  'Data-driven operations',
+                  'Custom IIOT platforms'
+                ]
+              },
+              {
+                icon: 'fa-lightbulb',
+                title: 'Advanced Technologies',
+                items: [
+                  'AI / Machine Learning',
+                  'Data & analytics',
+                  'Blockchain solutions'
+                ]
+              },
+              {
+                icon: 'fa-project-diagram',
+                title: 'Digital Thread',
+                items: [
+                  'End-to-end traceability',
+                  'Cross-platform integration',
+                  'Real-time data synchronization'
+                ]
+              }
+            ].map((expertise, i) => (
+              <div key={i} className="bg-slate-50 rounded-[2rem] p-8 shadow-lg border-2 border-slate-200 hover:border-blue-500 transition-all duration-300 reveal active group">
+                <div className="flex items-center space-x-4 mb-6">
+                  <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center text-white text-2xl group-hover:scale-110 transition-transform">
+                    <i className={`fas ${expertise.icon}`}></i>
+                  </div>
+                  <h3 className="text-xl font-black text-slate-900">{expertise.title}</h3>
                 </div>
-                <h4 className="text-2xl font-black text-slate-900 mb-6">{m.title}</h4>
-                <p className="text-slate-500 font-bold text-sm leading-relaxed flex-grow">
-                  {m.desc}
-                </p>
+                <ul className="space-y-3">
+                  {expertise.items.map((item, idx) => (
+                    <li key={idx} className="flex items-start space-x-3">
+                      <i className="fas fa-check text-blue-600 mt-1 flex-shrink-0"></i>
+                      <span className="text-slate-700 font-semibold text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
         </div>
       </div>
 
+      {/* Experience Across Leading Global Organizations */}
+      <div className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+        <div className="container mx-auto px-4 lg:px-20">
+          <div className="text-center mb-16 reveal active">
+            <h2 className="text-5xl font-black text-white mb-4">
+              Experience Across Leading Global Organizations
+            </h2>
+            <div className="h-1.5 w-48 bg-blue-500 mx-auto rounded-full"></div>
+            <p className="text-slate-300 text-lg mt-6 max-w-3xl mx-auto">
+              Trusted by industry leaders across aerospace, manufacturing, energy, and technology sectors worldwide
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 items-center">
+            {[
+              { src: 'assets/volocopter.png', alt: 'Volocopter', blend: false },
+              { src: 'assets/honeywell.png', alt: 'Honeywell', blend: false },
+              { src: 'assets/mechronspike-new.png', alt: 'MechriSpike', blend: true },
+              { src: 'assets/kaartech.png', alt: 'KaarTech', blend: false },
+              { src: 'assets/qatarenergy.png', alt: 'Qatar Energy LNG', blend: false },
+              { src: 'assets/hindsight.png', alt: 'Hind Sight', blend: false },
+              { src: 'assets/engineering.png', alt: 'Engineering Company', blend: false }
+            ].map((logo, i) => (
+              <div key={i} className="bg-white rounded-[1.5rem] p-8 flex items-center justify-center hover:scale-105 transition-transform duration-300 shadow-xl hover:shadow-2xl reveal active h-32 group">
+                <img 
+                  src={logo.src} 
+                  alt={logo.alt} 
+                  className={`max-w-full max-h-full object-contain transition-opacity ${logo.blend ? 'mix-blend-multiply' : ''}`}
+                  style={logo.blend ? { filter: 'brightness(1.2)' } : {}}
+                />
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-16 text-center reveal active">
+            <div className="inline-flex items-center space-x-8 bg-slate-800/50 backdrop-blur-sm px-12 py-6 rounded-full border border-slate-700">
+              <div className="text-center">
+                <div className="text-4xl font-black text-blue-400 mb-1">50+</div>
+                <div className="text-slate-400 text-sm font-bold uppercase tracking-wider">Projects</div>
+              </div>
+              <div className="h-12 w-px bg-slate-700"></div>
+              <div className="text-center">
+                <div className="text-4xl font-black text-blue-400 mb-1">15+</div>
+                <div className="text-slate-400 text-sm font-bold uppercase tracking-wider">Industries</div>
+              </div>
+              <div className="h-12 w-px bg-slate-700"></div>
+              <div className="text-center">
+                <div className="text-4xl font-black text-blue-400 mb-1">10+</div>
+                <div className="text-slate-400 text-sm font-bold uppercase tracking-wider">Countries</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Bottom CTA Banner */}
-      <div className="container mx-auto px-4 lg:px-20 pb-24">
+      <div className="container mx-auto px-4 lg:px-20 pb-24 pt-8 bg-slate-100">
         <div className="bg-blue-600 rounded-[3rem] py-20 px-12 text-center text-white relative overflow-hidden shadow-2xl reveal active">
           <div className="relative z-10 max-w-3xl mx-auto">
             <h3 className="text-4xl lg:text-5xl font-black mb-8">Ready to modernize?</h3>

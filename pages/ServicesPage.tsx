@@ -47,12 +47,7 @@ const ServicesPage: React.FC = () => {
     <div className="bg-white pb-20">
       <div className="bg-slate-50 py-20 border-b border-gray-100">
         <div className="container mx-auto px-4 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-          <div className="flex items-center space-x-6">
-            <div className="h-16 w-auto flex items-center justify-center">
-              <img src="assets/logo.png" alt="LCS Logo" className="h-full w-auto block" />
-            </div>
-            <h1 className="text-5xl font-black text-slate-900 tracking-tight">Expert Services</h1>
-          </div>
+          <h1 className="text-5xl font-black text-slate-900 tracking-tight">Expert Services</h1>
           <p className="text-slate-500 font-bold uppercase tracking-widest text-sm md:text-right border-l-4 md:border-l-0 md:border-r-4 border-blue-600 pl-4 md:pl-0 md:pr-4">
             Engineering Digital Continuity
           </p>

@@ -247,6 +247,48 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Our Core Methodology Section */}
+      <section className="py-16 bg-slate-100 relative overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16 reveal active">
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tight animate-fade-in-up">
+              Our Core <span className="animate-text-gradient">Methodology</span>
+            </h2>
+            <div className="w-24 h-1 bg-blue-600 mx-auto mb-6 rounded-full animate-fade-in-up animate-glow-pulse" style={{ animationDelay: '0.2s' }}></div>
+            <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+              A structured approach to delivering successful digital transformation outcomes
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { icon: 'fa-search', title: 'Understand', desc: 'Deep analysis of business objectives, engineering processes, and system landscape.' },
+              { icon: 'fa-sliders-h', title: 'Define', desc: 'Clear roadmap, architecture, and implementation strategy aligned with client goals.' },
+              { icon: 'fa-rocket', title: 'Implement', desc: 'Robust execution with focus on quality, performance, and scalability.' },
+              { icon: 'fa-chart-line', title: 'Optimize & Support', desc: 'Continuous improvement, optimization, and long-term system stability.' }
+            ].map((m, i) => (
+              <div key={i} className="group animate-fade-in-up" style={{ animationDelay: `${i * 0.1}s` }}>
+                <div className="bg-white p-10 rounded-[2rem] shadow-lg border-2 border-slate-200 hover:border-blue-500 flex flex-col h-full reveal active transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/0 to-blue-600/0 group-hover:from-blue-600/5 group-hover:to-blue-600/10 transition-all duration-500"></div>
+                  
+                  <div className="relative z-10">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center text-white text-3xl mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
+                      <i className={`fas ${m.icon}`}></i>
+                    </div>
+                    <h4 className="text-2xl font-black text-slate-900 mb-6 group-hover:text-blue-600 transition-colors duration-300">{m.title}</h4>
+                    <p className="text-slate-600 font-semibold text-sm leading-relaxed flex-grow">
+                      {m.desc}
+                    </p>
+                  </div>
+                  
+                  <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-blue-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 {/* 
       <section className="bg-slate-900 py-16 relative mx-auto container px-4 z-20 rounded-[4rem] shadow-2xl reveal active mt-12">
         <div className="grid md:grid-cols-4 gap-12">
