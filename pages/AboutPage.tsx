@@ -202,13 +202,13 @@ const AboutPage: React.FC = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 items-center">
             {[
-              { src: 'assets/volocopter.png', alt: 'Volocopter' },
-              { src: 'assets/honeywell.png', alt: 'Honeywell' },
-              { src: 'assets/mechronspike-new.png', alt: 'MechriSpike' },
-              { src: 'assets/kaartech.png', alt: 'KaarTech' },
-              { src: 'assets/qatarenergy.png', alt: 'Qatar Energy LNG' },
-              { src: 'assets/hindsight.png', alt: 'Hind Sight' },
-              { src: 'assets/engineering.png', alt: 'Engineering Company' }
+              { src: '/assets/volocopter.png', alt: 'Volocopter' },
+              { src: '/assets/honeywell.png', alt: 'Honeywell' },
+              { src: '/assets/mechronspike-new.png', alt: 'MechriSpike' },
+              { src: '/assets/kaartech.png', alt: 'KaarTech' },
+              { src: '/assets/qatarenergy.png', alt: 'Qatar Energy LNG' },
+              { src: '/assets/hindsight.png', alt: 'Hind Sight' },
+              { src: '/assets/engineering.png', alt: 'Engineering Company' }
             ].map((logo, i) => (
               <div key={i} className="bg-white rounded-[1.5rem] p-8 flex items-center justify-center hover:scale-105 transition-transform duration-300 shadow-xl hover:shadow-2xl reveal active h-32 group">
                 <img 

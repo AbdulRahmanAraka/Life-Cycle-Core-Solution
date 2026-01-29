@@ -9,7 +9,7 @@ const Logo = ({ scrolled }: { scrolled: boolean }) => {
   return (
     <div className="flex items-center space-x-4 group cursor-pointer">
       <div className={`${iconHeight} transition-all duration-500 flex items-center justify-center`}>
-        <img src="assets/logo.png" alt="LCS Logo" className="h-full w-auto block" />
+        <img src="/assets/logo.png" alt="LCS Logo" className="h-full w-auto block" />
       </div>
       
     </div>

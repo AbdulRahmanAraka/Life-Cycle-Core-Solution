@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
             <div className="mb-8">
               <div className="flex items-center space-x-2 mb-3">
                 <div className="h-14 w-auto flex items-center justify-center flex-shrink-0">
-                  <img src="assets/logo-arrow.png" alt="LCS Logo" className="h-full w-auto block" />
+                  <img src="/assets/logo-arrow.png" alt="LCS Logo" className="h-full w-auto block" />
                 </div>
                 <div>
                   <h2 className="text-2xl font-black tracking-tighter leading-tight">LIFECYCLE CORE SOLUTIONS</h2>
