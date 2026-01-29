@@ -1,5 +1,6 @@
 
 import React from 'react';
+import emailjs from '@emailjs/browser';
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = React.useState({
@@ -8,14 +9,54 @@ const ContactPage: React.FC = () => {
     workEmail: '',
     overview: ''
   });
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [submitStatus, setSubmitStatus] = React.useState<'idle' | 'success' | 'error'>('idle');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Thank you! Your request has been submitted successfully.");
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      // EmailJS configuration from environment variables
+      const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      const templateParams = {
+        from_name: formData.fullName,
+        company_name: formData.companyName,
+        from_email: formData.workEmail,
+        message: formData.overview,
+        to_email: 'contact@lifecyclecore.com'
+      };
+
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        templateParams,
+        PUBLIC_KEY
+      );
+
+      setSubmitStatus('success');
+      setFormData({
+        fullName: '',
+        companyName: '',
+        workEmail: '',
+        overview: ''
+      });
+      
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -134,12 +175,36 @@ const ContactPage: React.FC = () => {
                 <div className="pt-4">
                   <button 
                     type="submit" 
-                    className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-8 py-5 rounded-xl font-black text-lg transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-8 py-5 rounded-xl font-black text-lg transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                   >
-                    <i className="fas fa-paper-plane mr-2"></i>
-                    Submit Request
+                    {isSubmitting ? (
+                      <>
+                        <i className="fas fa-spinner fa-spin mr-2"></i>
+                        Submitting...
+                      </>
+                    ) : (
+                      <>
+                        <i className="fas fa-paper-plane mr-2"></i>
+                        Submit Request
+                      </>
+                    )}
                   </button>
                 </div>
+
+                {/* Success/Error Messages */}
+                {submitStatus === 'success' && (
+                  <div className="bg-green-100 border-2 border-green-500 text-green-800 px-6 py-4 rounded-xl text-center font-bold animate-fade-in-up">
+                    <i className="fas fa-check-circle mr-2"></i>
+                    Thank you! Your request has been submitted successfully.
+                  </div>
+                )}
+                {submitStatus === 'error' && (
+                  <div className="bg-red-100 border-2 border-red-500 text-red-800 px-6 py-4 rounded-xl text-center font-bold animate-fade-in-up">
+                    <i className="fas fa-exclamation-circle mr-2"></i>
+                    Something went wrong. Please try again.
+                  </div>
+                )}
 
                 <p className="text-xs text-slate-500 text-center leading-relaxed">
                   By submitting this form, you agree to our privacy policy and terms of service.
