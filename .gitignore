@@ -28,3 +28,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Sensitive backend files - NEVER PUSH
+api/*.php
+api/
+uploads/
+logs/
+vendor/
