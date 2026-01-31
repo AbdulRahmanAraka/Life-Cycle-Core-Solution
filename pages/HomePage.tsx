@@ -4,13 +4,6 @@ import Hero from '../components/Hero';
 import { Link } from 'react-router-dom';
 
 const HomePage: React.FC = () => {
-  const features = [
-    { icon: 'fa-cog', title: 'PLM Implementation', desc: 'Expert deployment of Siemens Teamcenter, PTC Windchill, and more.' },
-    { icon: 'fa-project-diagram', title: 'Digital Continuity', desc: 'Seamless data flow across engineering and manufacturing.' },
-    { icon: 'fa-brain', title: 'Strategic Advisory', desc: 'Process-first consulting to align technology with business ROI.' },
-    { icon: 'fa-shield-alt', title: 'Managed Services', desc: 'Robust support to ensure maximum system uptime.' }
-  ];
-
   return (
     <div className="overflow-hidden">
       <Hero />
@@ -289,20 +282,6 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
-{/* 
-      <section className="bg-slate-900 py-16 relative mx-auto container px-4 z-20 rounded-[4rem] shadow-2xl reveal active mt-12">
-        <div className="grid md:grid-cols-4 gap-12">
-          {features.map((f, i) => (
-            <div key={i} className="text-white flex flex-col items-center text-center px-6 reveal active">
-              <div className="w-20 h-20 bg-blue-600/10 rounded-2xl flex items-center justify-center mb-6 text-blue-500 text-4xl border border-blue-600/20">
-                <i className={`fas ${f.icon}`}></i>
-              </div>
-              <h3 className="font-black text-xl mb-4 tracking-tight">{f.title}</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">{f.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section> */}
 
       <section className="py-16 bg-slate-100 reveal active">
         <div className="container mx-auto px-4">

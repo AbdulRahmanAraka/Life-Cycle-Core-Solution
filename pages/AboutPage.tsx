@@ -195,49 +195,103 @@ const AboutPage: React.FC = () => {
               Experience Across Leading Global Organizations
             </h2>
             <div className="h-1.5 w-48 bg-blue-500 mx-auto rounded-full"></div>
-            <p className="text-slate-300 text-lg mt-6 max-w-3xl mx-auto">
-              Trusted by industry leaders across aerospace, manufacturing, energy, and technology sectors worldwide
-            </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 items-center">
-            {[
-              { src: '/assets/volocopter.png', alt: 'Volocopter' },
-              { src: '/assets/honeywell.png', alt: 'Honeywell' },
-              { src: '/assets/mechronspike-new.png', alt: 'MechriSpike' },
-              { src: '/assets/kaartech.png', alt: 'KaarTech' },
-              { src: '/assets/qatarenergy.png', alt: 'Qatar Energy LNG' },
-              { src: '/assets/hindsight.png', alt: 'Hind Sight' },
-              { src: '/assets/engineering.png', alt: 'Engineering Company' }
-            ].map((logo, i) => (
-              <div key={i} className="bg-white rounded-[1.5rem] p-8 flex items-center justify-center hover:scale-105 transition-transform duration-300 shadow-xl hover:shadow-2xl reveal active h-32 group">
-                <img 
-                  src={logo.src} 
-                  alt={logo.alt} 
-                  className="max-w-full max-h-full object-contain transition-opacity"
-                />
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-16 text-center reveal active">
-            <div className="inline-flex items-center space-x-8 bg-slate-800/50 backdrop-blur-sm px-12 py-6 rounded-full border border-slate-700">
-              <div className="text-center">
-                <div className="text-4xl font-black text-blue-400 mb-1">50+</div>
-                <div className="text-slate-400 text-sm font-bold uppercase tracking-wider">Projects</div>
-              </div>
-              <div className="h-12 w-px bg-slate-700"></div>
-              <div className="text-center">
-                <div className="text-4xl font-black text-blue-400 mb-1">15+</div>
-                <div className="text-slate-400 text-sm font-bold uppercase tracking-wider">Industries</div>
-              </div>
-              <div className="h-12 w-px bg-slate-700"></div>
-              <div className="text-center">
-                <div className="text-4xl font-black text-blue-400 mb-1">10+</div>
-                <div className="text-slate-400 text-sm font-bold uppercase tracking-wider">Countries</div>
+          {/* Professional Horizontal Scrolling Logo Container */}
+          <div className="relative overflow-hidden py-4">
+            {/* Left Fade with professional gradient */}
+            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-slate-900 via-slate-900/90 to-transparent z-10 pointer-events-none"></div>
+            
+            {/* Right Fade with professional gradient */}
+            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-900 via-slate-900/90 to-transparent z-10 pointer-events-none"></div>
+            
+            <div className="logo-scroll-container">
+              <div className="logo-scroll-track">
+                {/* First set of logos */}
+                {[
+                  { src: '/assets/volocopter.png', alt: 'Volocopter' },
+                  { src: '/assets/honeywell.png', alt: 'Honeywell' },
+                  { src: '/assets/mechronspike-new.png', alt: 'MechriSpike' },
+                  { src: '/assets/kaartech.png', alt: 'KaarTech' },
+                  { src: '/assets/qatarenergy.png', alt: 'Qatar Energy LNG' },
+                  { src: '/assets/hindsight.png', alt: 'Hind Sight' },
+                  { src: '/assets/engineering.png', alt: 'Engineering Company' }
+                ].map((logo, i) => (
+                  <div key={`logo1-${i}`} className="logo-card">
+                    <img 
+                      src={logo.src} 
+                      alt={logo.alt} 
+                      className="max-w-full max-h-full object-contain"
+                    />
+                  </div>
+                ))}
+                {/* Duplicate set for seamless loop */}
+                {[
+                  { src: '/assets/volocopter.png', alt: 'Volocopter' },
+                  { src: '/assets/honeywell.png', alt: 'Honeywell' },
+                  { src: '/assets/mechronspike-new.png', alt: 'MechriSpike' },
+                  { src: '/assets/kaartech.png', alt: 'KaarTech' },
+                  { src: '/assets/qatarenergy.png', alt: 'Qatar Energy LNG' },
+                  { src: '/assets/hindsight.png', alt: 'Hind Sight' },
+                  { src: '/assets/engineering.png', alt: 'Engineering Company' }
+                ].map((logo, i) => (
+                  <div key={`logo2-${i}`} className="logo-card">
+                    <img 
+                      src={logo.src} 
+                      alt={logo.alt} 
+                      className="max-w-full max-h-full object-contain"
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
+
+          <style>{`
+            .logo-scroll-container {
+              overflow: hidden;
+              width: 100%;
+            }
+            
+            .logo-scroll-track {
+              display: flex;
+              gap: 2rem;
+              animation: scroll-logos 25s linear infinite;
+              width: fit-content;
+            }
+            
+            .logo-card {
+              width: 260px;
+              height: 128px;
+              flex-shrink: 0;
+              background: white;
+              border-radius: 1rem;
+              padding: 2rem;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+              transition: box-shadow 0.3s;
+              border: 1px solid rgba(255,255,255,0.2);
+            }
+            
+            .logo-card:hover {
+              box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+            }
+            
+            @keyframes scroll-logos {
+              0% {
+                transform: translateX(0);
+              }
+              100% {
+                transform: translateX(calc(-260px * 7 - 2rem * 7));
+              }
+            }
+            
+            .logo-scroll-track:hover {
+              animation-play-state: paused;
+            }
+          `}</style>
 
           {/* Info Icon with Click Toggle */}
           <div className="mt-8 flex items-center justify-end gap-4 reveal active">

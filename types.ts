@@ -14,9 +14,3 @@ export interface Industry {
   challenges: string[];
   howWeHelp: string[];
 }
-
-export interface ExpertiseItem {
-  icon: string;
-  title: string;
-  description: string;
-}

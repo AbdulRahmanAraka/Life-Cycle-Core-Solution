@@ -9,11 +9,25 @@ const ContactPage: React.FC = () => {
     workEmail: '',
     overview: ''
   });
+  const [file, setFile] = React.useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [submitStatus, setSubmitStatus] = React.useState<'idle' | 'success' | 'error'>('idle');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      const selectedFile = e.target.files[0];
+      // Limit file size to 10MB
+      if (selectedFile.size > 10 * 1024 * 1024) {
+        alert('File size must be less than 10MB');
+        e.target.value = '';
+        return;
+      }
+      setFile(selectedFile);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -27,12 +41,17 @@ const ContactPage: React.FC = () => {
       const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
       const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
+      if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+        throw new Error('Missing EmailJS configuration.');
+      }
+
       const templateParams = {
         from_name: formData.fullName,
         company_name: formData.companyName,
         from_email: formData.workEmail,
         message: formData.overview,
-        to_email: 'contact@lifecyclecore.com'
+        to_email: 'contact@lifecyclecore.com',
+        attachment_name: file ? file.name : 'No file attached'
       };
 
       await emailjs.send(
@@ -49,10 +68,13 @@ const ContactPage: React.FC = () => {
         workEmail: '',
         overview: ''
       });
+      setFile(null);
+      // Reset file input
+      const fileInput = document.querySelector('input[type="file"]') as HTMLInputElement;
+      if (fileInput) fileInput.value = '';
       
       setTimeout(() => setSubmitStatus('idle'), 5000);
     } catch (error) {
-      console.error('Error submitting form:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -170,6 +192,31 @@ const ContactPage: React.FC = () => {
                     placeholder="Tell us about your project, challenges, and goals..."
                     className="w-full bg-slate-50 border-2 border-slate-200 focus:border-blue-500 rounded-xl px-5 py-4 outline-none font-semibold text-slate-900 resize-none transition-colors duration-300"
                   ></textarea>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-black text-slate-900 mb-3 uppercase tracking-widest flex items-center">
+                    <span className="w-1 h-4 bg-blue-600 mr-2"></span>
+                    Supporting Documents (Optional)
+                  </label>
+                  <div className="relative">
+                    <input 
+                      type="file" 
+                      onChange={handleFileChange}
+                      accept=".pdf,.doc,.docx,.txt,.png,.jpg,.jpeg"
+                      className="w-full bg-slate-50 border-2 border-slate-200 focus:border-blue-500 rounded-xl px-5 py-4 outline-none font-semibold text-slate-900 transition-colors duration-300 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-bold file:bg-blue-100 file:text-blue-700 hover:file:bg-blue-200 file:cursor-pointer cursor-pointer"
+                    />
+                  </div>
+                  {file && (
+                    <div className="mt-2 flex items-center text-sm text-slate-600 bg-blue-50 px-4 py-2 rounded-lg">
+                      <i className="fas fa-file mr-2 text-blue-600"></i>
+                      <span className="font-semibold">{file.name}</span>
+                      <span className="ml-2 text-xs">({(file.size / 1024).toFixed(1)} KB)</span>
+                    </div>
+                  )}
+                  <p className="text-xs text-slate-500 mt-2">
+                    Max file size: 10MB. Supported: PDF, DOC, DOCX, TXT, Images
+                  </p>
                 </div>
 
                 <div className="pt-4">
