@@ -10,12 +10,12 @@ const HomePage: React.FC = () => {
       
       {/* New Introduction Card */}
       <section className="bg-slate-100 py-6 relative z-10">
-        <div className="container mx-auto px-4 -mt-32">
-          <div className="bg-slate-900 rounded-[3rem] shadow-2xl p-10 md:p-16 border border-slate-800 animate-scale-in hover-lift relative overflow-hidden">
+        <div className="container mx-auto px-4 -mt-20 sm:-mt-28 lg:-mt-32">
+          <div className="bg-slate-900 rounded-[3rem] shadow-2xl p-6 sm:p-8 md:p-12 lg:p-16 border border-slate-800 animate-scale-in hover-lift relative overflow-hidden">
             {/* Animated gradient background */}
             <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-transparent to-blue-600/5 animate-gradient opacity-50"></div>
             
-            <p className="text-lg md:text-xl text-slate-300 leading-relaxed text-center relative z-10">
+            <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed text-center relative z-10">
               <span className="font-black text-blue-400 bg-blue-600/20 px-3 py-1 rounded-lg inline-block transform hover:scale-110 transition-transform duration-300">LCS</span>
               {' '}
               {`delivers intelligent digital engineering solutions that unify product data, manufacturing operations, and enterprise systems. With expertise in PLM, PDM, MOM, MRO, Industry 4.0 (IIoT), and AI/ML technologies, we help organizations streamline workflows, enhance data visibility, and build a scalable, resilient digital enterprise.`.split(' ').map((word, index) => {
@@ -42,33 +42,33 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Our Delivery Models Section */}
-      <section className="py-12 bg-slate-100 relative overflow-hidden">
+      <section className="py-12 sm:py-16 bg-slate-100 relative overflow-hidden">
         {/* Animated floating circles */}
         <div className="absolute top-10 left-10 w-64 h-64 bg-blue-200/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-10 right-10 w-80 h-80 bg-blue-300/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         
         <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-4xl md:text-5xl font-black text-center mb-4 text-slate-900 tracking-tight animate-fade-in-up">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-center mb-4 text-slate-900 tracking-tight animate-fade-in-up">
             Our <span className="animate-text-gradient">Delivery Models</span>
           </h2>
-          <div className="w-24 h-1 bg-blue-600 mx-auto mb-16 rounded-full animate-fade-in-up animate-glow-pulse" style={{ animationDelay: '0.2s' }}></div>
+          <div className="w-20 sm:w-24 h-1 bg-blue-600 mx-auto mb-10 sm:mb-16 rounded-full animate-fade-in-up animate-glow-pulse" style={{ animationDelay: '0.2s' }}></div>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {/* Project-Based Delivery Card */}
             <div className="group relative animate-slide-in-left" style={{ animationDelay: '0.3s' }}>
-              <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-[2.5rem] p-10 h-full border-2 border-slate-700 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:scale-105 relative overflow-hidden">
+              <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-[2.5rem] p-6 sm:p-8 md:p-10 h-full border-2 border-slate-700 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:scale-105 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-40 h-40 bg-blue-600/10 rounded-full blur-3xl group-hover:bg-blue-600/30 transition-all duration-500 animate-pulse"></div>
                 
                 <div className="relative z-10 flex flex-col items-center text-center">
-                  <div className="w-20 h-20 bg-blue-600/20 rounded-2xl flex items-center justify-center mb-6 border border-blue-600/30 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 animate-icon-float">
-                    <i className="fas fa-briefcase text-blue-400 text-3xl"></i>
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-blue-600/20 rounded-2xl flex items-center justify-center mb-6 border border-blue-600/30 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 animate-icon-float">
+                    <i className="fas fa-briefcase text-blue-400 text-2xl sm:text-3xl"></i>
                   </div>
                   
-                  <h3 className="text-2xl md:text-3xl font-black text-white mb-6 tracking-tight group-hover:text-blue-400 transition-colors duration-300">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-4 sm:mb-6 tracking-tight group-hover:text-blue-400 transition-colors duration-300">
                     Project-Based Delivery
                   </h3>
                   
-                  <p className="text-slate-300 text-base md:text-lg leading-relaxed group-hover:text-white transition-colors duration-300">
+                  <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed group-hover:text-white transition-colors duration-300">
                     End-to-end ownership of projects—from requirement analysis and solution design to implementation, testing, and deployment.
                   </p>
                 </div>
@@ -79,19 +79,19 @@ const HomePage: React.FC = () => {
 
             {/* Dedicated Teams Card */}
             <div className="group relative animate-slide-in-right" style={{ animationDelay: '0.5s' }}>
-              <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-[2.5rem] p-10 h-full border-2 border-slate-700 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:scale-105 relative overflow-hidden">
+              <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-[2.5rem] p-6 sm:p-8 md:p-10 h-full border-2 border-slate-700 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:scale-105 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-40 h-40 bg-blue-600/10 rounded-full blur-3xl group-hover:bg-blue-600/30 transition-all duration-500 animate-pulse"></div>
                 
                 <div className="relative z-10 flex flex-col items-center text-center">
-                  <div className="w-20 h-20 bg-blue-600/20 rounded-2xl flex items-center justify-center mb-6 border border-blue-600/30 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 animate-icon-bounce">
-                    <i className="fas fa-users-cog text-blue-400 text-3xl"></i>
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-blue-600/20 rounded-2xl flex items-center justify-center mb-6 border border-blue-600/30 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 animate-icon-bounce">
+                    <i className="fas fa-users-cog text-blue-400 text-2xl sm:text-3xl"></i>
                   </div>
                   
-                  <h3 className="text-2xl md:text-3xl font-black text-white mb-6 tracking-tight group-hover:text-blue-400 transition-colors duration-300">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-4 sm:mb-6 tracking-tight group-hover:text-blue-400 transition-colors duration-300">
                     Dedicated Teams (T&M / PODs)
                   </h3>
                   
-                  <p className="text-slate-300 text-base md:text-lg leading-relaxed group-hover:text-white transition-colors duration-300">
+                  <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed group-hover:text-white transition-colors duration-300">
                     Flexible engagement with dedicated domain experts, engineers, and developers for long-term programs, enhancements, and continuous delivery.
                   </p>
                 </div>
@@ -104,9 +104,9 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Our Industry Solutions Section */}
-      <section className="py-12 bg-slate-100 relative overflow-hidden">
+      <section className="py-12 sm:py-16 bg-slate-100 relative overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="bg-slate-900 rounded-[3rem] shadow-2xl p-10 md:p-16 border border-slate-800 relative overflow-hidden animate-scale-in hover-lift">
+          <div className="bg-slate-900 rounded-[3rem] shadow-2xl p-6 sm:p-8 md:p-12 lg:p-16 border border-slate-800 relative overflow-hidden animate-scale-in hover-lift">
             {/* Animated background elements inside card */}
             <div className="absolute inset-0 opacity-10">
               <div className="absolute top-20 left-10 w-72 h-72 bg-blue-600 rounded-full blur-3xl animate-pulse"></div>
@@ -115,27 +115,27 @@ const HomePage: React.FC = () => {
             </div>
 
             <div className="relative z-10">
-              <h2 className="text-4xl md:text-5xl font-black text-center mb-4 text-white tracking-tight animate-fade-in-up">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-center mb-4 text-white tracking-tight animate-fade-in-up">
                 Our <span className="animate-text-gradient">Industry Solutions</span>
               </h2>
-              <div className="w-24 h-1 bg-blue-500 mx-auto mb-16 rounded-full animate-fade-in-up animate-glow-pulse" style={{ animationDelay: '0.2s' }}></div>
+              <div className="w-20 sm:w-24 h-1 bg-blue-500 mx-auto mb-10 sm:mb-16 rounded-full animate-fade-in-up animate-glow-pulse" style={{ animationDelay: '0.2s' }}></div>
               
               <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
                 {/* Engineering & Digital Systems */}
                 <div className="group animate-fade-in-up stagger-1">
-                  <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-8 h-full border border-blue-600/30 hover:border-blue-500 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-600/30 relative overflow-hidden hover:-translate-y-2 hover:scale-105">
+                  <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-6 sm:p-8 h-full border border-blue-600/30 hover:border-blue-500 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-600/30 relative overflow-hidden hover:-translate-y-2 hover:scale-105">
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-600/0 to-blue-600/0 group-hover:from-blue-600/10 group-hover:to-blue-600/20 transition-all duration-500"></div>
                     
                     <div className="relative z-10">
-                      <div className="w-16 h-16 bg-blue-600/20 rounded-2xl flex items-center justify-center mb-6 relative overflow-visible group-hover:bg-blue-600/30 transition-colors duration-300">
-                        <i className="fas fa-database text-blue-400 text-2xl animate-icon-float group-hover:scale-125 transition-transform duration-300"></i>
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-600/20 rounded-2xl flex items-center justify-center mb-6 relative overflow-visible group-hover:bg-blue-600/30 transition-colors duration-300">
+                        <i className="fas fa-database text-blue-400 text-xl sm:text-2xl animate-icon-float group-hover:scale-125 transition-transform duration-300"></i>
                       </div>
                       
-                      <h3 className="text-xl font-black text-white mb-4 tracking-tight group-hover:text-blue-400 transition-colors duration-300">
+                      <h3 className="text-lg sm:text-xl font-black text-white mb-4 tracking-tight group-hover:text-blue-400 transition-colors duration-300">
                         Engineering<br />& Digital Systems
                       </h3>
                       
-                      <p className="text-slate-400 text-sm leading-relaxed group-hover:text-slate-300 transition-colors duration-300">
+                      <p className="text-slate-400 text-xs sm:text-sm leading-relaxed group-hover:text-slate-300 transition-colors duration-300">
                         Design, implementation, and optimization of digital systems that support engineering, product data, and business processes.
                       </p>
                     </div>
@@ -146,19 +146,19 @@ const HomePage: React.FC = () => {
 
                 {/* Digital Continuity */}
                 <div className="group animate-fade-in-up stagger-2">
-                  <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-8 h-full border border-blue-600/30 hover:border-blue-500 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-600/30 relative overflow-hidden hover:-translate-y-2 hover:scale-105">
+                  <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-6 sm:p-8 h-full border border-blue-600/30 hover:border-blue-500 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-600/30 relative overflow-hidden hover:-translate-y-2 hover:scale-105">
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-600/0 to-blue-600/0 group-hover:from-blue-600/10 group-hover:to-blue-600/20 transition-all duration-500"></div>
                     
                     <div className="relative z-10">
-                      <div className="w-16 h-16 bg-blue-600/20 rounded-2xl flex items-center justify-center mb-6 relative overflow-visible group-hover:bg-blue-600/30 transition-colors duration-300">
-                        <i className="fas fa-project-diagram text-blue-400 text-2xl animate-icon-bounce group-hover:scale-125 transition-transform duration-300"></i>
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-600/20 rounded-2xl flex items-center justify-center mb-6 relative overflow-visible group-hover:bg-blue-600/30 transition-colors duration-300">
+                        <i className="fas fa-project-diagram text-blue-400 text-xl sm:text-2xl animate-icon-bounce group-hover:scale-125 transition-transform duration-300"></i>
                       </div>
                       
-                      <h3 className="text-xl font-black text-white mb-4 tracking-tight group-hover:text-blue-400 transition-colors duration-300">
+                      <h3 className="text-lg sm:text-xl font-black text-white mb-4 tracking-tight group-hover:text-blue-400 transition-colors duration-300">
                         Digital<br />Continuity
                       </h3>
                       
-                      <p className="text-slate-400 text-sm leading-relaxed group-hover:text-slate-300 transition-colors duration-300">
+                      <p className="text-slate-400 text-xs sm:text-sm leading-relaxed group-hover:text-slate-300 transition-colors duration-300">
                         Seamless integration of data and workflows across engineering, manufacturing, operations, and enterprise systems.
                       </p>
                     </div>
@@ -169,19 +169,19 @@ const HomePage: React.FC = () => {
 
                 {/* Technology Advisory */}
                 <div className="group animate-fade-in-up stagger-3">
-                  <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-8 h-full border border-blue-600/30 hover:border-blue-500 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-600/30 relative overflow-hidden hover:-translate-y-2 hover:scale-105">
+                  <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-6 sm:p-8 h-full border border-blue-600/30 hover:border-blue-500 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-600/30 relative overflow-hidden hover:-translate-y-2 hover:scale-105">
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-600/0 to-blue-600/0 group-hover:from-blue-600/10 group-hover:to-blue-600/20 transition-all duration-500"></div>
                     
                     <div className="relative z-10">
-                      <div className="w-16 h-16 bg-blue-600/20 rounded-2xl flex items-center justify-center mb-6 relative overflow-visible group-hover:bg-blue-600/30 transition-colors duration-300">
-                        <i className="fas fa-brain text-blue-400 text-2xl animate-icon-float group-hover:scale-125 transition-transform duration-300"></i>
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-600/20 rounded-2xl flex items-center justify-center mb-6 relative overflow-visible group-hover:bg-blue-600/30 transition-colors duration-300">
+                        <i className="fas fa-brain text-blue-400 text-xl sm:text-2xl animate-icon-float group-hover:scale-125 transition-transform duration-300"></i>
                       </div>
                       
-                      <h3 className="text-xl font-black text-white mb-4 tracking-tight group-hover:text-blue-400 transition-colors duration-300">
+                      <h3 className="text-lg sm:text-xl font-black text-white mb-4 tracking-tight group-hover:text-blue-400 transition-colors duration-300">
                         Technology<br />Advisory
                       </h3>
                       
-                      <p className="text-slate-400 text-sm leading-relaxed group-hover:text-slate-300 transition-colors duration-300">
+                      <p className="text-slate-400 text-xs sm:text-sm leading-relaxed group-hover:text-slate-300 transition-colors duration-300">
                         Practical consulting to align technology, processes, and architecture with business goals and long-term scalability.
                       </p>
                     </div>
@@ -192,19 +192,19 @@ const HomePage: React.FC = () => {
 
                 {/* PLM Implementation */}
                 <div className="group animate-fade-in-up stagger-4">
-                  <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-8 h-full border border-blue-600/30 hover:border-blue-500 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-600/30 relative overflow-hidden hover:-translate-y-2 hover:scale-105">
+                  <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-6 sm:p-8 h-full border border-blue-600/30 hover:border-blue-500 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-600/30 relative overflow-hidden hover:-translate-y-2 hover:scale-105">
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-600/0 to-blue-600/0 group-hover:from-blue-600/10 group-hover:to-blue-600/20 transition-all duration-500"></div>
                     
                     <div className="relative z-10">
-                      <div className="w-16 h-16 bg-blue-600/20 rounded-2xl flex items-center justify-center mb-6 relative overflow-visible group-hover:bg-blue-600/30 transition-colors duration-300">
-                        <i className="fas fa-window-maximize text-blue-400 text-xl animate-icon-bounce group-hover:scale-125 transition-transform duration-300"></i>
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-600/20 rounded-2xl flex items-center justify-center mb-6 relative overflow-visible group-hover:bg-blue-600/30 transition-colors duration-300">
+                        <i className="fas fa-window-maximize text-blue-400 text-lg sm:text-xl animate-icon-bounce group-hover:scale-125 transition-transform duration-300"></i>
                       </div>
                       
-                      <h3 className="text-xl font-black text-white mb-4 tracking-tight group-hover:text-blue-400 transition-colors duration-300">
+                      <h3 className="text-lg sm:text-xl font-black text-white mb-4 tracking-tight group-hover:text-blue-400 transition-colors duration-300">
                         PLM<br />Implementation
                       </h3>
                       
-                      <p className="text-slate-400 text-sm leading-relaxed group-hover:text-slate-300 transition-colors duration-300">
+                      <p className="text-slate-400 text-xs sm:text-sm leading-relaxed group-hover:text-slate-300 transition-colors duration-300">
                         Expert deployment of enterprise PLM solutions including Siemens Teamcenter, PTC Windchill, and other platforms.
                       </p>
                     </div>
@@ -215,19 +215,19 @@ const HomePage: React.FC = () => {
 
                 {/* Managed Services */}
                 <div className="group animate-fade-in-up stagger-5">
-                  <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-8 h-full border border-blue-600/30 hover:border-blue-500 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-600/30 relative overflow-hidden hover:-translate-y-2 hover:scale-105">
+                  <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-6 sm:p-8 h-full border border-blue-600/30 hover:border-blue-500 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-600/30 relative overflow-hidden hover:-translate-y-2 hover:scale-105">
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-600/0 to-blue-600/0 group-hover:from-blue-600/10 group-hover:to-blue-600/20 transition-all duration-500"></div>
                     
                     <div className="relative z-10">
-                      <div className="w-16 h-16 bg-blue-600/20 rounded-2xl flex items-center justify-center mb-6 relative overflow-visible group-hover:bg-blue-600/30 transition-colors duration-300">
-                        <i className="fas fa-shield-alt text-blue-400 text-2xl animate-icon-float group-hover:scale-125 transition-transform duration-300"></i>
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-600/20 rounded-2xl flex items-center justify-center mb-6 relative overflow-visible group-hover:bg-blue-600/30 transition-colors duration-300">
+                        <i className="fas fa-shield-alt text-blue-400 text-xl sm:text-2xl animate-icon-float group-hover:scale-125 transition-transform duration-300"></i>
                       </div>
                       
-                      <h3 className="text-xl font-black text-white mb-4 tracking-tight group-hover:text-blue-400 transition-colors duration-300">
+                      <h3 className="text-lg sm:text-xl font-black text-white mb-4 tracking-tight group-hover:text-blue-400 transition-colors duration-300">
                         Managed<br />Services
                       </h3>
                       
-                      <p className="text-slate-400 text-sm leading-relaxed group-hover:text-slate-300 transition-colors duration-300">
+                      <p className="text-slate-400 text-xs sm:text-sm leading-relaxed group-hover:text-slate-300 transition-colors duration-300">
                         Proactive monitoring, maintenance, and support to ensure system stability, security, and continuous performance.
                       </p>
                     </div>
@@ -242,14 +242,14 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Our Core Methodology Section */}
-      <section className="py-16 bg-slate-100 relative overflow-hidden">
+      <section className="py-12 sm:py-16 bg-slate-100 relative overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 reveal active">
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tight animate-fade-in-up">
+          <div className="text-center mb-10 sm:mb-16 reveal active">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tight animate-fade-in-up">
               Our Core <span className="animate-text-gradient">Methodology</span>
             </h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto mb-6 rounded-full animate-fade-in-up animate-glow-pulse" style={{ animationDelay: '0.2s' }}></div>
-            <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+            <div className="w-20 sm:w-24 h-1 bg-blue-600 mx-auto mb-6 rounded-full animate-fade-in-up animate-glow-pulse" style={{ animationDelay: '0.2s' }}></div>
+            <p className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto">
               A structured approach to delivering successful digital transformation outcomes
             </p>
           </div>
@@ -262,15 +262,15 @@ const HomePage: React.FC = () => {
               { icon: 'fa-chart-line', title: 'Optimize & Support', desc: 'Continuous improvement, optimization, and long-term system stability.' }
             ].map((m, i) => (
               <div key={i} className="group animate-fade-in-up" style={{ animationDelay: `${i * 0.1}s` }}>
-                <div className="bg-white p-10 rounded-[2rem] shadow-lg border-2 border-slate-200 hover:border-blue-500 flex flex-col h-full reveal active transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl relative overflow-hidden">
+                <div className="bg-white p-6 sm:p-8 md:p-10 rounded-[2rem] shadow-lg border-2 border-slate-200 hover:border-blue-500 flex flex-col h-full reveal active transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-600/0 to-blue-600/0 group-hover:from-blue-600/5 group-hover:to-blue-600/10 transition-all duration-500"></div>
                   
                   <div className="relative z-10">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center text-white text-3xl mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center text-white text-2xl sm:text-3xl mb-6 sm:mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
                       <i className={`fas ${m.icon}`}></i>
                     </div>
-                    <h4 className="text-2xl font-black text-slate-900 mb-6 group-hover:text-blue-600 transition-colors duration-300">{m.title}</h4>
-                    <p className="text-slate-600 font-semibold text-sm leading-relaxed flex-grow">
+                    <h4 className="text-xl sm:text-2xl font-black text-slate-900 mb-4 sm:mb-6 group-hover:text-blue-600 transition-colors duration-300">{m.title}</h4>
+                    <p className="text-slate-600 font-semibold text-xs sm:text-sm leading-relaxed flex-grow">
                       {m.desc}
                     </p>
                   </div>
@@ -283,9 +283,9 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-slate-100 reveal active">
+      <section className="py-12 sm:py-16 bg-slate-100 reveal active">
         <div className="container mx-auto px-4">
-          <div className="bg-gradient-to-br from-blue-600 via-blue-500 to-blue-600 rounded-[4rem] p-16 lg:p-24 text-center text-white shadow-2xl relative overflow-hidden group animate-gradient hover-lift">
+          <div className="bg-gradient-to-br from-blue-600 via-blue-500 to-blue-600 rounded-[3rem] sm:rounded-[4rem] p-10 sm:p-12 lg:p-24 text-center text-white shadow-2xl relative overflow-hidden group animate-gradient hover-lift">
             {/* Animated gradient background */}
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-blue-400 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 animate-gradient"></div>
             
@@ -294,14 +294,14 @@ const HomePage: React.FC = () => {
             <div className="absolute bottom-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }}></div>
             <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/10 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }}></div>
             
-            <h3 className="text-4xl md:text-6xl font-black mb-12 tracking-tighter relative z-10 animate-fade-in-up group-hover:scale-105 transition-transform duration-500">
+            <h3 className="text-3xl sm:text-4xl md:text-6xl font-black mb-8 sm:mb-12 tracking-tighter relative z-10 animate-fade-in-up group-hover:scale-105 transition-transform duration-500">
               Ready to optimize your<br /> <span className="inline-block group-hover:animate-pulse">product lifecycle?</span>
             </h3>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-8 relative z-10">
-              <Link to="/contact" className="bg-slate-900 text-white px-14 py-6 rounded-2xl font-black text-2xl btn-refined shadow-2xl hover:bg-slate-800 hover:scale-110 transition-all duration-300 animate-slide-in-left">
+              <Link to="/contact" className="bg-slate-900 text-white px-8 sm:px-14 py-4 sm:py-6 rounded-2xl font-black text-lg sm:text-2xl btn-refined shadow-2xl hover:bg-slate-800 hover:scale-110 transition-all duration-300 animate-slide-in-left">
                 Get Started
               </Link>
-              <Link to="/services" className="bg-white/10 hover:bg-white/30 text-white border-2 border-white/30 hover:border-white px-14 py-6 rounded-2xl font-black text-2xl transition-all backdrop-blur-md hover:scale-110 duration-300 animate-slide-in-right">
+              <Link to="/services" className="bg-white/10 hover:bg-white/30 text-white border-2 border-white/30 hover:border-white px-8 sm:px-14 py-4 sm:py-6 rounded-2xl font-black text-lg sm:text-2xl transition-all backdrop-blur-md hover:scale-110 duration-300 animate-slide-in-right">
                 View Services
               </Link>
             </div>

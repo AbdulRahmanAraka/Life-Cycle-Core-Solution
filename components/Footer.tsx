@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
                 </div>
                 <div>
                   <h2 className="text-2xl font-black tracking-tighter leading-tight">LIFECYCLE CORE SOLUTIONS</h2>
-                  <p className="text-blue-400 font-bold text-xs uppercase tracking-widest">Engineering Digital Continuity</p>
+                  <p className="text-blue-400 font-bold text-xs uppercase tracking-widest">Accelerate Your Digital Transformation</p>
                 </div>
               </div>
             </div>

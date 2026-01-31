@@ -1,6 +1,5 @@
 
 import React from 'react';
-import emailjs from '@emailjs/browser';
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = React.useState({
@@ -36,30 +35,28 @@ const ContactPage: React.FC = () => {
     setSubmitStatus('idle');
 
     try {
-      // EmailJS configuration from environment variables
-      const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-      const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-      const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-      if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
-        throw new Error('Missing EmailJS configuration.');
+      // Create FormData for file upload
+      const formDataToSend = new FormData();
+      formDataToSend.append('fullName', formData.fullName);
+      formDataToSend.append('companyName', formData.companyName);
+      formDataToSend.append('workEmail', formData.workEmail);
+      formDataToSend.append('overview', formData.overview);
+      
+      if (file) {
+        formDataToSend.append('file', file);
       }
 
-      const templateParams = {
-        from_name: formData.fullName,
-        company_name: formData.companyName,
-        from_email: formData.workEmail,
-        message: formData.overview,
-        to_email: 'contact@lifecyclecore.com',
-        attachment_name: file ? file.name : 'No file attached'
-      };
+      // Send to your Hostinger PHP backend
+      const response = await fetch('https://lifecyclecore.com/api/contact.php', {
+        method: 'POST',
+        body: formDataToSend,
+      });
 
-      await emailjs.send(
-        SERVICE_ID,
-        TEMPLATE_ID,
-        templateParams,
-        PUBLIC_KEY
-      );
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to submit form');
+      }
 
       setSubmitStatus('success');
       setFormData({
@@ -75,6 +72,7 @@ const ContactPage: React.FC = () => {
       
       setTimeout(() => setSubmitStatus('idle'), 5000);
     } catch (error) {
+      console.error('Error submitting form:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -84,24 +82,24 @@ const ContactPage: React.FC = () => {
   return (
     <div className="bg-gradient-to-b from-slate-50 to-white min-h-screen">
       {/* Header */}
-      <div className="bg-gradient-to-r from-slate-900 to-slate-800 py-16 border-b border-slate-700">
+      <div className="bg-gradient-to-r from-slate-900 to-slate-800 py-12 sm:py-16 border-b border-slate-700">
         <div className="container mx-auto px-4 lg:px-20">
-          <h1 className="text-5xl md:text-6xl font-black text-white tracking-tight mb-4">Get in Touch</h1>
-          <p className="text-slate-300 text-lg md:text-xl max-w-3xl">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-4">Get in Touch</h1>
+          <p className="text-slate-300 text-base sm:text-lg md:text-xl max-w-3xl">
             Let's discuss how we can transform your engineering operations
           </p>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 lg:px-20 py-16">
+      <div className="container mx-auto px-4 lg:px-20 py-12 sm:py-16">
         <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
           {/* Left Side - Info */}
           <div className="reveal active">
-            <h2 className="text-4xl font-black text-slate-900 mb-8 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 mb-6 sm:mb-8 tracking-tight">
               Request a <span className="text-blue-600">Consultation</span>
             </h2>
-            <p className="text-slate-600 text-lg leading-relaxed mb-10">
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-8 sm:mb-10">
               Our experts are ready to analyze your current systems and recommend the right solutions. Fill out the form and we'll get back to you within 24 hours.
             </p>
 
@@ -114,11 +112,11 @@ const ContactPage: React.FC = () => {
                 { icon: 'fa-award', title: 'Expert Guidance', desc: 'Industry-leading PLM specialists' }
               ].map((item, i) => (
                 <div key={i} className="flex items-start space-x-4 group">
-                  <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center group-hover:bg-blue-600 transition-colors duration-300">
+                  <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-xl flex items-center justify-center group-hover:bg-blue-600 transition-colors duration-300">
                     <i className={`fas ${item.icon} text-blue-600 group-hover:text-white transition-colors duration-300`}></i>
                   </div>
                   <div>
-                    <h3 className="font-black text-slate-900 text-lg mb-1">{item.title}</h3>
+                    <h3 className="font-black text-slate-900 text-base sm:text-lg mb-1">{item.title}</h3>
                     <p className="text-slate-600 text-sm">{item.desc}</p>
                   </div>
                 </div>
@@ -128,7 +126,7 @@ const ContactPage: React.FC = () => {
 
           {/* Right Side - Form */}
           <div className="reveal active" style={{ animationDelay: '0.2s' }}>
-            <div className="bg-white border-2 border-slate-200 rounded-[2rem] shadow-2xl p-8 md:p-12">
+            <div className="bg-white border-2 border-slate-200 rounded-[2rem] shadow-2xl p-6 sm:p-8 md:p-12">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label className="block text-xs font-black text-slate-900 mb-3 uppercase tracking-widest flex items-center">
@@ -142,7 +140,7 @@ const ContactPage: React.FC = () => {
                     value={formData.fullName}
                     onChange={handleChange} 
                     placeholder="John Doe"
-                    className="w-full bg-slate-50 border-2 border-slate-200 focus:border-blue-500 rounded-xl px-5 py-4 outline-none font-semibold text-slate-900 transition-colors duration-300" 
+                    className="w-full bg-slate-50 border-2 border-slate-200 focus:border-blue-500 rounded-xl px-4 sm:px-5 py-3 sm:py-4 outline-none font-semibold text-slate-900 transition-colors duration-300" 
                   />
                 </div>
 
@@ -158,7 +156,7 @@ const ContactPage: React.FC = () => {
                     value={formData.companyName}
                     onChange={handleChange} 
                     placeholder="Acme Corporation"
-                    className="w-full bg-slate-50 border-2 border-slate-200 focus:border-blue-500 rounded-xl px-5 py-4 outline-none font-semibold text-slate-900 transition-colors duration-300" 
+                    className="w-full bg-slate-50 border-2 border-slate-200 focus:border-blue-500 rounded-xl px-4 sm:px-5 py-3 sm:py-4 outline-none font-semibold text-slate-900 transition-colors duration-300" 
                   />
                 </div>
 
@@ -174,7 +172,7 @@ const ContactPage: React.FC = () => {
                     value={formData.workEmail}
                     onChange={handleChange} 
                     placeholder="john.doe@company.com"
-                    className="w-full bg-slate-50 border-2 border-slate-200 focus:border-blue-500 rounded-xl px-5 py-4 outline-none font-semibold text-slate-900 transition-colors duration-300" 
+                    className="w-full bg-slate-50 border-2 border-slate-200 focus:border-blue-500 rounded-xl px-4 sm:px-5 py-3 sm:py-4 outline-none font-semibold text-slate-900 transition-colors duration-300" 
                   />
                 </div>
 
@@ -190,7 +188,7 @@ const ContactPage: React.FC = () => {
                     value={formData.overview}
                     onChange={handleChange} 
                     placeholder="Tell us about your project, challenges, and goals..."
-                    className="w-full bg-slate-50 border-2 border-slate-200 focus:border-blue-500 rounded-xl px-5 py-4 outline-none font-semibold text-slate-900 resize-none transition-colors duration-300"
+                    className="w-full bg-slate-50 border-2 border-slate-200 focus:border-blue-500 rounded-xl px-4 sm:px-5 py-3 sm:py-4 outline-none font-semibold text-slate-900 resize-none transition-colors duration-300"
                   ></textarea>
                 </div>
 
@@ -204,7 +202,7 @@ const ContactPage: React.FC = () => {
                       type="file" 
                       onChange={handleFileChange}
                       accept=".pdf,.doc,.docx,.txt,.png,.jpg,.jpeg"
-                      className="w-full bg-slate-50 border-2 border-slate-200 focus:border-blue-500 rounded-xl px-5 py-4 outline-none font-semibold text-slate-900 transition-colors duration-300 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-bold file:bg-blue-100 file:text-blue-700 hover:file:bg-blue-200 file:cursor-pointer cursor-pointer"
+                      className="w-full bg-slate-50 border-2 border-slate-200 focus:border-blue-500 rounded-xl px-4 sm:px-5 py-3 sm:py-4 outline-none font-semibold text-slate-900 transition-colors duration-300 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-bold file:bg-blue-100 file:text-blue-700 hover:file:bg-blue-200 file:cursor-pointer cursor-pointer"
                     />
                   </div>
                   {file && (
@@ -223,7 +221,7 @@ const ContactPage: React.FC = () => {
                   <button 
                     type="submit" 
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-8 py-5 rounded-xl font-black text-lg transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                    className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-6 sm:px-8 py-4 sm:py-5 rounded-xl font-black text-base sm:text-lg transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                   >
                     {isSubmitting ? (
                       <>
@@ -241,13 +239,13 @@ const ContactPage: React.FC = () => {
 
                 {/* Success/Error Messages */}
                 {submitStatus === 'success' && (
-                  <div className="bg-green-100 border-2 border-green-500 text-green-800 px-6 py-4 rounded-xl text-center font-bold animate-fade-in-up">
+                  <div className="bg-green-100 border-2 border-green-500 text-green-800 px-6 py-4 rounded-xl text-center font-bold text-sm sm:text-base animate-fade-in-up">
                     <i className="fas fa-check-circle mr-2"></i>
                     Thank you! Your request has been submitted successfully.
                   </div>
                 )}
                 {submitStatus === 'error' && (
-                  <div className="bg-red-100 border-2 border-red-500 text-red-800 px-6 py-4 rounded-xl text-center font-bold animate-fade-in-up">
+                  <div className="bg-red-100 border-2 border-red-500 text-red-800 px-6 py-4 rounded-xl text-center font-bold text-sm sm:text-base animate-fade-in-up">
                     <i className="fas fa-exclamation-circle mr-2"></i>
                     Something went wrong. Please try again.
                   </div>

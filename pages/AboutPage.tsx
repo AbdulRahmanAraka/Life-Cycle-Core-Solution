@@ -18,23 +18,23 @@ const AboutPage: React.FC = () => {
   return (
     <div className="bg-slate-100 min-h-screen">
       {/* Top Header Section */}
-      <div className="bg-gradient-to-r from-slate-900 to-slate-800 py-12 border-b border-slate-700">
+      <div className="bg-gradient-to-r from-slate-900 to-slate-800 py-10 sm:py-12 border-b border-slate-700">
         <div className="container mx-auto px-4 lg:px-20">
-          <h1 className="text-4xl font-black text-white tracking-tight">About Us</h1>
+          <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">About Us</h1>
         </div>
       </div>
 
       {/* Hero Section */}
-      <div className="container mx-auto px-4 lg:px-20 py-16 bg-slate-100">
+      <div className="container mx-auto px-4 lg:px-20 py-12 sm:py-16 bg-slate-100">
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Left Content */}
           <div className="lg:w-1/2 space-y-10 reveal active">
-            <h2 className="text-5xl font-black text-slate-900 leading-tight">
-              Engineering<br />
-              <span className="text-blue-600">Digital Continuity</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-tight">
+              Accelerate Your Digital<br />
+              <span className="text-blue-600">Transformation</span>
             </h2>
             
-            <div className="space-y-6 text-slate-500 font-bold text-lg leading-relaxed">
+            <div className="space-y-6 text-slate-500 font-bold text-base sm:text-lg leading-relaxed">
               <p>
                 <span className="text-slate-900">Lifecycle Core Solutions (LCS)</span> is a specialized technology consultancy focused on bridging the gap between engineering processes and digital system execution.
               </p>
@@ -44,12 +44,12 @@ const AboutPage: React.FC = () => {
             </div>
 
             {/* Core Values Box */}
-            <div className="bg-blue-50 p-8 rounded-[2rem] border-2 border-blue-200 shadow-lg">
+            <div className="bg-blue-50 p-6 sm:p-8 rounded-[2rem] border-2 border-blue-200 shadow-lg">
               <div className="flex items-center space-x-4 mb-6">
                 <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white">
                   <i className="fas fa-users"></i>
                 </div>
-                <h3 className="text-xl font-black text-slate-900">Core Values</h3>
+                <h3 className="text-lg sm:text-xl font-black text-slate-900">Core Values</h3>
               </div>
               <ul className="space-y-4">
                 {[
@@ -57,7 +57,7 @@ const AboutPage: React.FC = () => {
                   'Engineering Domain Expertise',
                   'Transparent Strategic Partnerships'
                 ].map((val, i) => (
-                  <li key={i} className="flex items-center space-x-3 text-slate-900 font-bold">
+                  <li key={i} className="flex items-center space-x-3 text-slate-900 font-bold text-sm sm:text-base">
                     <i className="fas fa-check-circle text-blue-600"></i>
                     <span>{val}</span>
                   </li>
@@ -68,9 +68,9 @@ const AboutPage: React.FC = () => {
 
           {/* Right Content - Core Methodology */}
           <div className="lg:w-1/2 reveal active">
-            <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-[2.5rem] p-10 shadow-2xl h-full">
+            <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-2xl h-full">
               <div className="mb-8">
-                <h3 className="text-3xl font-black text-white mb-2">Our Core Methodology</h3>
+                <h3 className="text-2xl sm:text-3xl font-black text-white mb-2">Our Core Methodology</h3>
                 <div className="h-1 w-24 bg-blue-500 rounded-full"></div>
               </div>
               
@@ -82,12 +82,12 @@ const AboutPage: React.FC = () => {
                   { icon: 'fa-chart-line', title: 'Optimize & Support', desc: 'Continuous improvement, optimization, and long-term system stability.' }
                 ].map((m, i) => (
                   <div key={i} className="flex gap-4 group">
-                    <div className="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white text-xl group-hover:bg-blue-500 transition-colors">
+                    <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white text-lg sm:text-xl group-hover:bg-blue-500 transition-colors">
                       <i className={`fas ${m.icon}`}></i>
                     </div>
                     <div>
-                      <h4 className="text-lg font-black text-white mb-2">{m.title}</h4>
-                      <p className="text-slate-400 text-sm leading-relaxed">{m.desc}</p>
+                      <h4 className="text-base sm:text-lg font-black text-white mb-2">{m.title}</h4>
+                      <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">{m.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -98,14 +98,14 @@ const AboutPage: React.FC = () => {
       </div>
 
       {/* Our Expertise Section */}
-      <div className="py-24 bg-slate-100">
+      <div className="py-12 sm:py-16 md:py-24 bg-slate-100">
         <div className="container mx-auto px-4 lg:px-20">
           <div className="text-center mb-16 reveal active">
-            <h2 className="text-5xl font-black text-slate-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mb-4">
               Our Expertise
             </h2>
             <div className="h-1.5 w-32 bg-blue-600 mx-auto rounded-full"></div>
-            <p className="text-slate-600 text-lg mt-6 max-w-2xl mx-auto">
+            <p className="text-slate-600 text-base sm:text-lg mt-6 max-w-2xl mx-auto">
               Comprehensive solutions across the digital manufacturing ecosystem
             </p>
           </div>
@@ -166,18 +166,18 @@ const AboutPage: React.FC = () => {
                 ]
               }
             ].map((expertise, i) => (
-              <div key={i} className="bg-slate-50 rounded-[2rem] p-8 shadow-lg border-2 border-slate-200 hover:border-blue-500 transition-all duration-300 reveal active group">
+              <div key={i} className="bg-slate-50 rounded-[2rem] p-6 sm:p-8 shadow-lg border-2 border-slate-200 hover:border-blue-500 transition-all duration-300 reveal active group">
                 <div className="flex items-center space-x-4 mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center text-white text-2xl group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center text-white text-xl sm:text-2xl group-hover:scale-110 transition-transform">
                     <i className={`fas ${expertise.icon}`}></i>
                   </div>
-                  <h3 className="text-xl font-black text-slate-900">{expertise.title}</h3>
+                  <h3 className="text-lg sm:text-xl font-black text-slate-900">{expertise.title}</h3>
                 </div>
                 <ul className="space-y-3">
                   {expertise.items.map((item, idx) => (
                     <li key={idx} className="flex items-start space-x-3">
                       <i className="fas fa-check text-blue-600 mt-1 flex-shrink-0"></i>
-                      <span className="text-slate-700 font-semibold text-sm">{item}</span>
+                      <span className="text-slate-700 font-semibold text-xs sm:text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -188,10 +188,10 @@ const AboutPage: React.FC = () => {
       </div>
 
       {/* Experience Across Leading Global Organizations */}
-      <div className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative">
+      <div className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative">
         <div className="container mx-auto px-4 lg:px-20">
           <div className="text-center mb-16 reveal active">
-            <h2 className="text-5xl font-black text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-4">
               Experience Across Leading Global Organizations
             </h2>
             <div className="h-1.5 w-48 bg-blue-500 mx-auto rounded-full"></div>
@@ -251,22 +251,26 @@ const AboutPage: React.FC = () => {
             .logo-scroll-container {
               overflow: hidden;
               width: 100%;
+              --logo-card-width: 260px;
+              --logo-card-height: 128px;
+              --logo-card-padding: 2rem;
+              --logo-gap: 2rem;
             }
             
             .logo-scroll-track {
               display: flex;
-              gap: 2rem;
+              gap: var(--logo-gap);
               animation: scroll-logos 25s linear infinite;
               width: fit-content;
             }
             
             .logo-card {
-              width: 260px;
-              height: 128px;
+              width: var(--logo-card-width);
+              height: var(--logo-card-height);
               flex-shrink: 0;
               background: white;
               border-radius: 1rem;
-              padding: 2rem;
+              padding: var(--logo-card-padding);
               display: flex;
               align-items: center;
               justify-content: center;
@@ -284,12 +288,30 @@ const AboutPage: React.FC = () => {
                 transform: translateX(0);
               }
               100% {
-                transform: translateX(calc(-260px * 7 - 2rem * 7));
+                transform: translateX(calc(-1 * (var(--logo-card-width) + var(--logo-gap)) * 7));
               }
             }
             
             .logo-scroll-track:hover {
               animation-play-state: paused;
+            }
+
+            @media (max-width: 1024px) {
+              .logo-scroll-container {
+                --logo-card-width: 220px;
+                --logo-card-height: 112px;
+                --logo-card-padding: 1.5rem;
+                --logo-gap: 1.5rem;
+              }
+            }
+
+            @media (max-width: 640px) {
+              .logo-scroll-container {
+                --logo-card-width: 180px;
+                --logo-card-height: 96px;
+                --logo-card-padding: 1.25rem;
+                --logo-gap: 1rem;
+              }
             }
           `}</style>
 
@@ -315,14 +337,14 @@ const AboutPage: React.FC = () => {
       </div>
 
       {/* Bottom CTA Banner */}
-      <div className="container mx-auto px-4 lg:px-20 pb-24 pt-8 bg-slate-100">
-        <div className="bg-blue-600 rounded-[3rem] py-20 px-12 text-center text-white relative overflow-hidden shadow-2xl reveal active">
+      <div className="container mx-auto px-4 lg:px-20 pb-12 sm:pb-16 md:pb-24 pt-6 sm:pt-8 bg-slate-100">
+        <div className="bg-blue-600 rounded-[3rem] py-12 sm:py-16 md:py-20 px-6 sm:px-10 md:px-12 text-center text-white relative overflow-hidden shadow-2xl reveal active">
           <div className="relative z-10 max-w-3xl mx-auto">
-            <h3 className="text-4xl lg:text-5xl font-black mb-8">Ready to modernize?</h3>
-            <p className="text-xl font-bold opacity-80 mb-12">
+            <h3 className="text-2xl sm:text-3xl lg:text-5xl font-black mb-6 sm:mb-8">Ready to modernize?</h3>
+            <p className="text-base sm:text-lg lg:text-xl font-bold opacity-80 mb-8 sm:mb-12">
               Partner with LCS to ensure digital continuity across your product lifecycle.
             </p>
-            <Link to="/contact" className="inline-block bg-slate-900 text-white px-12 py-5 rounded-2xl font-black text-xl btn-refined shadow-2xl">
+            <Link to="/contact" className="inline-block bg-slate-900 text-white px-8 sm:px-12 py-4 sm:py-5 rounded-2xl font-black text-base sm:text-xl btn-refined shadow-2xl">
               Get Started
             </Link>
           </div>

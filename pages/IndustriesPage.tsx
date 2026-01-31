@@ -78,16 +78,16 @@ const IndustriesPage: React.FC = () => {
   return (
     <div className="bg-white">
       {/* Header */}
-      <div className="bg-slate-50 py-12 border-b border-gray-100">
+      <div className="bg-slate-50 py-10 sm:py-12 border-b border-gray-100">
         <div className="container mx-auto px-4">
-          <h1 className="text-3xl font-black text-slate-900 tracking-tight">Industries</h1>
+          <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">Industries</h1>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-20">
-        <div className="mb-20 reveal active">
-          <h2 className="text-5xl font-black text-slate-900 mb-8 tracking-tighter leading-none">Engineering-Driven <span className="text-blue-600">Expertise</span></h2>
-          <p className="text-2xl text-slate-600 max-w-4xl leading-relaxed font-medium">
+      <div className="container mx-auto px-4 py-12 sm:py-16 md:py-20">
+        <div className="mb-10 sm:mb-16 md:mb-20 reveal active">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mb-6 sm:mb-8 tracking-tighter leading-tight">Engineering-Driven <span className="text-blue-600">Expertise</span></h2>
+          <p className="text-base sm:text-xl md:text-2xl text-slate-600 max-w-4xl leading-relaxed font-medium">
             We support industries where product complexity, data accuracy, and lifecycle control are critical to business success.
           </p>
         </div>
@@ -95,32 +95,32 @@ const IndustriesPage: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-12">
           {industries.map((ind) => (
             <div key={ind.id} className="bg-slate-50 rounded-[3rem] overflow-hidden border border-gray-100 shadow-sm reveal active hover:shadow-xl transition-all duration-500">
-              <div className="bg-white p-10 flex items-center space-x-8">
-                <div className="w-20 h-20 bg-blue-600 text-white rounded-3xl flex items-center justify-center text-4xl shadow-xl shadow-blue-600/20">
+              <div className="bg-white p-6 sm:p-8 md:p-10 flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 sm:space-x-8">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-blue-600 text-white rounded-3xl flex items-center justify-center text-3xl sm:text-4xl shadow-xl shadow-blue-600/20">
                   <i className={`fas ${ind.icon}`}></i>
                 </div>
                 <div>
-                  <h3 className="text-3xl font-black text-slate-900 tracking-tight">{ind.title}</h3>
+                  <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">{ind.title}</h3>
                   <p className="text-blue-600 font-bold uppercase tracking-widest text-xs mt-1">Sector Expertise</p>
                 </div>
               </div>
-              <div className="p-12 grid md:grid-cols-2 gap-12">
+              <div className="p-6 sm:p-8 md:p-12 grid md:grid-cols-2 gap-8 sm:gap-12">
                 <div>
                   <h4 className="text-xs font-black text-slate-400 uppercase tracking-widest mb-6">Common Challenges</h4>
                   <ul className="space-y-4">
                     {ind.challenges.map((c, i) => (
-                      <li key={i} className="flex items-start space-x-3 text-slate-600 font-bold text-sm">
+                      <li key={i} className="flex items-start space-x-3 text-slate-600 font-bold text-xs sm:text-sm">
                         <span className="text-blue-500">•</span>
                         <span>{c}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className="bg-blue-600/5 p-8 rounded-3xl border border-blue-600/10">
+                <div className="bg-blue-600/5 p-6 sm:p-8 rounded-3xl border border-blue-600/10">
                   <h4 className="text-xs font-black text-blue-600 uppercase tracking-widest mb-6">Our Impact</h4>
                   <ul className="space-y-4">
                     {ind.howWeHelp.map((h, i) => (
-                      <li key={i} className="flex items-start space-x-3 text-slate-900 font-black text-sm">
+                      <li key={i} className="flex items-start space-x-3 text-slate-900 font-black text-xs sm:text-sm">
                         <i className="fas fa-check text-blue-600 mt-1"></i>
                         <span>{h}</span>
                       </li>
@@ -132,10 +132,10 @@ const IndustriesPage: React.FC = () => {
           ))}
         </div>
 
-        <div className="mt-32 bg-slate-900 rounded-[4rem] p-16 lg:p-24 text-center text-white relative overflow-hidden reveal active">
-          <h3 className="text-4xl md:text-6xl font-black mb-12 tracking-tighter relative z-10">Tailored Solutions for Your Industry</h3>
+        <div className="mt-16 sm:mt-24 md:mt-32 bg-slate-900 rounded-[3rem] sm:rounded-[4rem] p-10 sm:p-14 lg:p-24 text-center text-white relative overflow-hidden reveal active">
+          <h3 className="text-2xl sm:text-4xl md:text-6xl font-black mb-8 sm:mb-12 tracking-tighter relative z-10">Tailored Solutions for Your Industry</h3>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 relative z-10">
-            <Link to="/contact" className="bg-blue-600 text-white px-14 py-6 rounded-2xl font-black text-2xl btn-refined shadow-2xl">
+            <Link to="/contact" className="bg-blue-600 text-white px-8 sm:px-14 py-4 sm:py-6 rounded-2xl font-black text-lg sm:text-2xl btn-refined shadow-2xl">
               Discuss Your Project
             </Link>
           </div>
