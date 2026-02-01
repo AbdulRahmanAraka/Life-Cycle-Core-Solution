@@ -8,8 +8,19 @@ const Logo = ({ scrolled }: { scrolled: boolean }) => {
 
   return (
     <div className="flex items-center space-x-4 group cursor-pointer">
-      <div className={`${iconHeight} transition-all duration-500 flex items-center justify-center`}>
-        <img src="/assets/logo.png" alt="LCS Logo" className="h-full w-auto block" />
+      <div className={`${iconHeight} transition-all duration-500 flex items-center justify-center overflow-hidden`}>
+        <picture className="h-full w-auto block">
+          <source
+            type="image/webp"
+            srcSet="/assets/logo-80.webp 1x, /assets/logo-160.webp 2x"
+          />
+          <img
+            src="/assets/logo-80.png"
+            srcSet="/assets/logo-160.png 2x"
+            alt="LCS Logo"
+            className="h-full w-auto block object-contain"
+          />
+        </picture>
       </div>
       
     </div>
