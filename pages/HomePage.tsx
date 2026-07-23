@@ -92,7 +92,7 @@ const HomePage: React.FC = () => {
                   </h3>
                   
                   <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed group-hover:text-white transition-colors duration-300">
-                    Flexible engagement with dedicated domain experts, engineers, and developers for long-term programs, enhancements, and continuous delivery.
+                    Engage our specialists on your terms—domain experts, engineers, and developers available for sustained programs, iterative improvements, and ongoing delivery.
                   </p>
                 </div>
                 
@@ -295,7 +295,7 @@ const HomePage: React.FC = () => {
             <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/10 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }}></div>
             
             <h3 className="text-3xl sm:text-4xl md:text-6xl font-black mb-8 sm:mb-12 tracking-tighter relative z-10 animate-fade-in-up group-hover:scale-105 transition-transform duration-500">
-              Ready to optimize your<br /> <span className="inline-block group-hover:animate-pulse">product lifecycle?</span>
+              Let's transform your<br /> <span className="inline-block group-hover:animate-pulse">product lifecycle together.</span>
             </h3>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-8 relative z-10">
               <Link to="/contact" className="bg-slate-900 text-white px-8 sm:px-14 py-4 sm:py-6 rounded-2xl font-black text-lg sm:text-2xl btn-refined shadow-2xl hover:bg-slate-800 hover:scale-110 transition-all duration-300 animate-slide-in-left">
